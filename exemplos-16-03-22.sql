@@ -29,3 +29,43 @@ select avg(preco) from produtos;
 -- SUM(Soma de valores de uma coluna)
 select sum(preco) from produtos;
 select sum(preco) from produtos where id_categoria = 1;
+
+select sum(preco) as soma_produtos from produtos;
+select avg(preco) as media_produtos from produtos;
+
+
+
+select * from produtos;
+
+select count(*) from produtos where id_categoria = 1;
+select count(*) from produtos where id_categoria = 2;
+select count(*) from produtos where id_categoria = 3;
+
+select sum(preco) from produtos where id_categoria = 1;
+select sum(preco) from produtos where id_categoria = 2;
+select sum(preco) from produtos where id_categoria = 3;
+
+select count(*), id_categoria from produtos
+group by id_categoria;
+
+select sum(preco), id_categoria from produtos
+group by id_categoria;
+
+select avg(preco), id_categoria from produtos
+group by id_categoria;
+
+select avg(p.preco), c.id, c.nome from produtos p
+inner join categorias c on p.id_categoria = c.id
+group by c.id
+order by c.nome;
+
+
+
+
+
+select sum(mensalidade), curso from alunos
+group by curso;
+
+select count(*), curso from alunos
+where maior_idade = true
+group by curso;
